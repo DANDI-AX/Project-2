@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Dashboard - Bethel Academy</title>
+  <link rel="stylesheet" href="bstyle.css" />
+  <style>
+    body {
+      background-color: var(--bg-primary);
+    }
+
+    #logout-btn {
+      background: var(--accent);
+      border: none;
+      color: var(--text-secondary);
+      padding: 0.5rem 1.2rem;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      float: right;
+      margin: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    #logout-btn:hover {
+      background-color: #527878;
+    }
+
+    .dashboard-wrapper {
+      max-width: 1300px;
+      margin: 3rem auto;
+      padding: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .box {
+      background-color: var(--bg-secondary);
+      border-radius: 10px;
+      box-shadow: 0 0 10px var(--shadow);
+      padding: 2rem;
+      color: var(--text-primary);
+    }
+
+    .profile-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1 1 35%;
+    }
+
+    .profile-box img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+    }
+
+    .profile-info {
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-top: 1rem;
+    }
+
+    .profile-info p {
+      margin: 0.4rem 0;
+    }
+
+    .conduct-badge {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+
+    th, td {
+      padding: 0.7rem;
+      text-align: center;
+      border-bottom: 1px solid var(--highlight);
+    }
+
+    th {
+      background-color: var(--bg-header-footer);
+      color: var(--text-secondary);
+    }
+
+    .summary-box {
+      background-color: var(--bg-secondary);
+      border-top: 1px solid var(--highlight);
+      padding-top: 1rem;
+      font-size: 1rem;
+    }
+
+    .summary-box p {
+      margin: 0.3rem 0;
+    }
+
+    .grades-box {
+      flex: 1 1 62%;
+    }
+
+    .badge {
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+      font-size: 0.85rem;
+      margin-left: 0.4rem;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .badge.green {
+      background-color: #3fa97b;
+      color: #fff;
+    }
+
+    .badge.yellow {
+      background-color: #d6a925;
+      color: #fff;
+    }
+
+    .badge.orange {
+      background-color: #dd7835;
+      color: #fff;
+    }
+
+    .badge.red {
+      background-color: #cc4444;
+      color: #fff;
+    }
+    .profile-box img#studentPhoto {
+      width: 180px;              /* 🔼 Increased size */
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      margin-bottom: 1rem;
+      box-shadow: 0 6px 16px var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+}
+
+.profile-box img#studentPhoto:hover {
+  transform: scale(1.15);    /* 🔍 Zoom on hover */
+  box-shadow: 0 8px 24px var(--shadow);
+}
+
+
+    @media (max-width: 768px) {
+      .dashboard-wrapper {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .box {
+        flex: 1 1 90%;
+      }
+
+      table {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+  
+
+
+
+
+
+
+
+  <header>
+    <div class="logo">Bethel Academy</div>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="aboutbethel.html">About</a>
+      <a href="bethelacadmics.html">Academics</a>
+      <a href="register.html">Register</a>
+      <a href="payment.html">Payments</a>
+      
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button id="logout-btn">Logout</button>
+    <button id="mode-toggle" aria-label="Toggle Dark/Light Mode">🌘</button>
+  </header>
+
+  
+
+  <div class="dashboard-wrapper">
+
+    <!-- Student Profile Box -->
+    <div class="box profile-box">
+      <img id="studentPhoto" src="" alt="Student Profile Picture" />
+      <div class="profile-info">
+        <h2 id="studentName">Loading...</h2>
+        <p><strong>ID:</strong> <span id="studentID"></span></p>
+        <p><strong>Age:</strong> <span id="studentAge"></span></p>
+        <p><strong>Grade:</strong> <span id="studentGrade"></span></p>
+        <p><strong>Conduct:</strong> <span class="conduct-badge" id="conductRating"></span></p>
+        <hr style="width: 80%; margin: 1rem auto; border: 1px solid var(--highlight)" />
+        <p style="font-style: italic; color: var(--highlight);">"Strive for excellence, aim for integrity."</p>
+      </div>
+    </div>
+
+    <!-- Grades Table + Summary -->
+    <div class="box grades-box">
+      <table>
+        <thead>
+          <tr>
+            <th>Subject</th>
+            <th>Test 1<br>(/20)</th>
+            <th>Test 2<br>(/20)</th>
+            <th>Final<br>(/60)</th>
+            <th>Total<br>(/100)</th>
+          </tr>
+        </thead>
+        <tbody id="gradesTable">
+          <!-- JavaScript will insert rows here -->
+        </tbody>
+      </table>
+
+      <div class="summary-box" id="summary">
+        <!-- Summary loaded here -->
+      </div>
+    </div>
+
+  </div>
+
+  
+  <script src="student.js"></script>
+<script>
+  const modeToggleBtn = document.getElementById("mode-toggle");
+
+  // On page load: apply saved mode
+  const savedMode = localStorage.getItem("mode");
+  if (savedMode) {
+    document.body.classList.toggle("light-mode", savedMode === "light");
+    updateModeButton();
+  }
+
+  // Listen for toggle button clicks
+  modeToggleBtn.addEventListener("click", () => {
+    const isLight = document.body.classList.toggle("light-mode");
+    localStorage.setItem("mode", isLight ? "light" : "dark");
+    updateModeButton();
+  });
+
+  function updateModeButton() {
+    if (document.body.classList.contains("light-mode")) {
+      modeToggleBtn.textContent = "🌘"; // moon emoji for dark mode
+      modeToggleBtn.setAttribute("aria-label", "Switch to Dark Mode");
+    } else {
+      modeToggleBtn.textContent = "☀️"; // new moon emoji for light mode
+      modeToggleBtn.setAttribute("aria-label", "Switch to Light Mode");
+    }
+  }
+
+</script>
+
+
+</body>
+</html>

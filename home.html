@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Bethel Academy - Home</title>
+    <link rel="stylesheet" href="bstyle.css" />
+</head>
+<body>
+    <header>
+        <div class="logo">Bethel Academy</div>
+
+       
+
+        <!-- Main nav -->
+        <nav id="main-nav">
+            <a href="home.html">Home</a>
+            <a href="aboutbethel.html">About</a>
+            <a href="bethelacadmics.html">Academics</a>
+            <a href="register.html">Register</a>
+            <a href="payment.html">Payments</a>
+            <a href="student-login.html">Student Management</a>
+            <a href="contact.html">Contact</a>
+            
+        </nav>
+        <button id="mode-toggle" onclick="toggleMode()">🌘</button>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to Bethel Academy</h1>
+        <p>A PLACE OF DREAM, BLESSING AND PROMISE!!</p>
+        <button class="cta">Explore More</button>
+    </section>
+
+    <section class="news">
+        <h2>News & Updates</h2>
+        <div class="news-container">
+            <div class="news-item">🚀 Admissions Open for 2026!</div>
+            <div class="news-item">🏆 Bethel Academy wins National Competition</div>
+            <div class="news-item">📅 Parent-Teacher Conference – July 15</div>
+        </div>
+    </section>
+
+    <section class="mission">
+        <h2>Our Mission</h2>
+        <p>At Bethel Academy, we are committed to fostering a love of learning, empowering students to reach their full potential, and building a community grounded in excellence and compassion.</p>
+    </section>
+
+    <section class="quick-links">
+        <h2>Quick Links</h2>
+        <div class="links-container">
+            <a href="#" class="link">🎓 Admissions</a>
+            <a href="#" class="link">💳 Payments</a>
+            <a href="#" class="link">📞 Contact Us</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>📍 JITU | 📞 (+251)9456-7890 | ✉️ info@academy.com</p>
+        <p>🔗 <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a></p>
+        <p>© 2025 Bethel Academy</p>
+    </footer>
+
+    <script>
+        // Dark mode setup
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedMode = localStorage.getItem('mode');
+            const body = document.body;
+            const toggleButtons = document.querySelectorAll('#mode-toggle');
+
+            if (savedMode === 'light') {
+                body.classList.add('light-mode');
+                toggleButtons.forEach(btn => btn.textContent = '🌘');
+            } else {
+                body.classList.remove('light-mode');
+                toggleButtons.forEach(btn => btn.textContent = '☀️');
+            }
+
+            toggleButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    body.classList.toggle('light-mode');
+                    const isLight = body.classList.contains('light-mode');
+                    toggleButtons.forEach(b => b.textContent = isLight ? '🌘' : '☀️');
+                    localStorage.setItem('mode', isLight ? 'light' : 'dark');
+                });
+            });
+        });
+        const menuToggle = document.getElementById('menu-toggle');
+        const nav = document.getElementById('main-nav');
+
+        menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('show');
+        });
+
+       
+        
+       
+    </script>
+</body>
+</html>

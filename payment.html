@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bethel Academy - Payments</title>
+    <link rel="stylesheet" href="bstyle.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Bethel Academy</div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="aboutbethel.html">About</a>
+            <a href="bethelacadmics.html">Academics</a>
+            <a href ="register.html">Register</a>
+            <a href="payment.html">Payments</a>
+            <a href="student-login.html">student management</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <button id="mode-toggle" onclick="toggleMode()">🌘</button>
+    </header>
+
+    <section class="payments-hero">
+        <h1>Payments</h1>
+        <p>Secure Monthly Tuition Payments</p>
+    </section>
+
+    <section class="payment-form">
+        <h2>Make a Monthly Payment</h2>
+        <form class="payment-details">
+            <div class="form-group">
+                <label for="student-name">Student Name</label>
+                <input type="text" id="student-name" placeholder="Enter student's full name" required>
+            </div>
+            <div class="form-group">
+                <label for="student-id">Student ID</label>
+                <input type="text" id="student-id" placeholder="Enter student ID" required>
+            </div>
+            <div class="form-group">
+                <label for="grade">Grade Level</label>
+                <select id="grade" required>
+                    <option value="">Select Grade</option>
+                    <option value="PRE-KG">PRE-KG</option>
+                    <option value="KG_1">KG-1</option>
+                    <option value="KG-2">KG-2</option>
+                    <option value="KG-3">KG-3 </option>
+                    <option value="1">Grade 1</option>
+                    <option value="2">Grade 2</option>
+                    <option value="3">Grade 3</option>
+                    <option value="4">Grade 4</option>
+                    <option value="5">Grade 5</option>
+                    <option value="6">Grade 6</option>
+                    <option value="7">Grade 7</option>
+                    <option value="8">Grade 8</option>
+                    <option value="9">Grade 9</option>
+                    <option value="10">Grade 10</option>
+                    <option value="11">Grade 11</option>
+                    <option value="12">Grade 12</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="month">Payment Month</label>
+                <select id="month" required>
+                    <option value="">Select Month</option>
+                    <option value="january">January</option>
+                    <option value="february">February</option>
+                    <option value="march">March</option>
+                    <option value="april">April</option>
+                    <option value="may">May</option>
+                    <option value="june">June</option>
+                    <option value="july">July</option>
+                    <option value="august">August</option>
+                    <option value="september">September</option>
+                    <option value="october">October</option>
+                    <option value="november">November</option>
+                    <option value="december">December</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="amount">Amount (ETB)</label>
+                <input type="number" id="amount" value="500" step="0.01" min="0" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email for Receipt</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="bank">Select Bank</label>
+                <select id="bank" required>
+                    <option value="">Select Bank</option>
+                    <option value="COMMERCIAL BANK">COMMERCIAL BANK</option>
+                    <option value="AWASH BANK">AWASH BANK</option>
+                    <option value="COOP">COOP</option>
+                    <option value="NIB">NIB</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" placeholder="1234 5678 9012 3456" required>
+            </div>
+           
+            </div>
+            <button type="submit" class="cta">Submit Payment</button>
+        </form>
+    </section>
+
+    <section class="payment-instructions">
+        <h2>How to Pay</h2>
+        <p>Select your student’s grade, month, and bank, then enter payment details above. Fees may vary by grade level. Payments are processed securely. For assistance, contact our Bursar’s Office.</p>
+    </section>
+
+    <section class="payment-contact">
+        <h2>Need Help?</h2>
+        <p>Contact the Bursar’s Office: <a href="mailto:bursar@academy.com">bursar@academy.com</a> | (+251) 9456-7890</p>
+    </section>
+
+    <footer>
+        <p>📍 JITU | 📞 (+251)9456-7890 | ✉️ info@academy.com</p>
+        <p>🔗 <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a></p>
+        <p>© 2025 Bethel Academy</p>
+    </footer>
+
+    <script>
+        // Load saved mode from localStorage on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedMode = localStorage.getItem('mode');
+            const body = document.body;
+            const toggleButton = document.querySelector('#mode-toggle');
+            if (savedMode === 'light') {
+                body.classList.add('light-mode');
+                toggleButton.textContent = '🌘';
+            } else {
+                body.classList.remove('light-mode');
+                toggleButton.textContent = '☀️';
+            }
+        });
+
+        // Toggle mode and save to localStorage
+        function toggleMode() {
+            const body = document.body;
+            const toggleButton = document.querySelector('#mode-toggle');
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                toggleButton.textContent = '☀️';
+                localStorage.setItem('mode', 'dark');
+            } else {
+                body.classList.add('light-mode');
+                toggleButton.textContent = '🌘';
+                localStorage.setItem('mode', 'light');
+            }
+        }
+    </script>
+</body>
+</html>

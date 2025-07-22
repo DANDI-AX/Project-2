@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bethel Academy - Contact</title>
+    <link rel="stylesheet" href="bstyle.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Bethel Academy</div>
+        <nav>
+            <a href="websiteb.html">Home</a>
+            <a href="aboutbethel.html">About</a>
+            <a href="bethelacadmics.html">Academics</a>
+            <a href ="register.html">Register</a>
+            <a href="payment.html">Payments</a>
+            <a href="student-login.html">student management</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <button id="mode-toggle" onclick="toggleMode()">🌘</button>
+    </header>
+
+    <section class="contact-hero">
+        <h1>Contact Us</h1>
+        <p>We’re Here to Assist You</p>
+    </section>
+
+    <section class="contact-container">
+        <div class="contact-form">
+            <h2>Send Us a Message</h2>
+            <form class="contact-details">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" placeholder="Enter the subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Enter your message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="cta">Send Message</button>
+            </form>
+        </div>
+
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p><strong>Address:</strong> , OROMIA</p>
+            <p><strong>Phone:</strong> (+251) 9456-7890</p>
+            <p><strong>Email:</strong> <a href="mailto:info@academy.com">info@academy.com</a></p>
+            <p><strong>Office Hours:</strong> Monday - Friday, 8:00 AM - 4:00 PM</p>
+            <h3>Follow Us</h3>
+            <p>
+                <a href="#">Facebook</a> | 
+                <a href="#">Twitter</a> | 
+                <a href="#">Instagram</a>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>📍 JITU | 📞 (+251)9456-7890 | ✉️ info@academy.com</p>
+        <p>🔗 <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a></p>
+        <p>© 2025 Bethel Academy</p>
+    </footer>
+
+    <script>
+        // Load saved mode from localStorage on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedMode = localStorage.getItem('mode');
+            const body = document.body;
+            const toggleButton = document.querySelector('#mode-toggle');
+            if (savedMode === 'light') {
+                body.classList.add('light-mode');
+                toggleButton.textContent = '🌘';
+            } else {
+                body.classList.remove('light-mode');
+                toggleButton.textContent = '☀️';
+            }
+        });
+
+        // Toggle mode and save to localStorage
+        function toggleMode() {
+            const body = document.body;
+            const toggleButton = document.querySelector('#mode-toggle');
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                toggleButton.textContent = '☀️';
+                localStorage.setItem('mode', 'dark');
+            } else {
+                body.classList.add('light-mode');
+                toggleButton.textContent = '🌘';
+                localStorage.setItem('mode', 'light');
+            }
+        }
+    </script>
+</body>
+</html>

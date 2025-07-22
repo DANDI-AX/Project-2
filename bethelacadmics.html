@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bethel Academy - Academics</title>
+    <link rel="stylesheet" href="bstyle.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Bethel Academy</div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="aboutbethel.html">About</a>
+            <a href="bethelacadmics.html">Academics</a>
+            <a href ="register.html">Register</a>
+            <a href="payment.html">Payments</a>
+            <a href="student-login.html">student management</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <button id="mode-toggle" onclick="toggleMode()">🌘</button>
+    </header>
+
+    <section class="academics-hero">
+        <h1>Academics</h1>
+        <p>Building a Foundation for Lifelong Success</p>
+    </section>
+
+    <section class="programs">
+        <h2>Programs Offered</h2>
+        <div class="programs-container">
+            <div class="program-card">
+                <h3>Nursery Education</h3>
+                <p>Grades Prekg-Prep: Core skills in writing,reading and mathematics.</p>
+            </div>
+            <div class="program-card">
+                <h3>Elementary School</h3>
+                <p>Grades 1-8: Advanced subjects and critical thinking development.</p>
+            </div>
+            <div class="program-card">
+                <h3>High School</h3>
+                <p>Grades 9-12: College preparatory courses and specialized electives.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="curriculum">
+        <h2>Curriculum Highlights</h2>
+        <ul class="curriculum-list">
+            <li>STEM Focus – Hands-on science, technology, and mathematics education.</li>
+            <li>Arts Integration – Comprehensive music, visual arts, and drama programs.</li>
+            <li>Global Perspectives – Advanced language and cultural studies.</li>
+        </ul>
+    </section>
+
+    <section class="achievements">
+        <h2>Academic Achievements</h2>
+        <div class="achievements-container">
+            <div class="achievement-item">
+                <span>National Competition</span>
+                <p>First🥇 Place in Maths🏆🏆</p>
+
+                <p>First🥇 Place in Civics🏆🏆</p>
+            </div>
+            <div class="achievement-item">
+                <span>100% College Acceptance</span>
+                <p>Over 557 students accepted in university all over ethiopa</p>
+            </div>
+            <div class="achievement-item">
+                <span>Top mark in Entrance exam</span>
+                <p>Recognized by State Education Board and awarded🏆</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Join Our Academic Community</h2>
+        <p>Discover how Bethel Academy prepares students for a world of opportunities.</p>
+        <button class="cta">Learn More</button>
+    </section>
+
+    <footer>
+        <p>📍 JITU | 📞 (+251)9456-7890 | ✉️ info@academy.com</p>
+        <p>🔗 <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a></p>
+        <p>© 2025 Bethel Academy</p>
+    </footer>
+
+    <script>
+        // Load saved mode from localStorage on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedMode = localStorage.getItem('mode');
+            const body = document.body;
+            const toggleButton = document.querySelector('#mode-toggle');
+            if (savedMode === 'light') {
+                body.classList.add('light-mode');
+                toggleButton.textContent = '🌘';
+            } else {
+                body.classList.remove('light-mode');
+                toggleButton.textContent = '☀️';
+            }
+        });
+
+        // Toggle mode and save to localStorage
+        function toggleMode() {
+            const body = document.body;
+            const toggleButton = document.querySelector('#mode-toggle');
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                toggleButton.textContent = '☀️';
+                localStorage.setItem('mode', 'dark');
+            } else {
+                body.classList.add('light-mode');
+                toggleButton.textContent = '🌘';
+                localStorage.setItem('mode', 'light');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bethel Academy - About Us</title>
+    <link rel="stylesheet" href="bstyle.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Bethel Academy</div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="aboutbethel.html">About</a>
+            <a href="bethelacadmics.html">Academics</a>
+            <a href ="register.html">Register</a>
+            <a href="payment.html">Payments</a>
+            <a href="student-login.html">student management</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <button id="mode-toggle" onclick="toggleMode()">🌘</button>
+    </header>
+
+    <section class="about-hero">
+        <h1>About Bethel Academy</h1>
+        <p>A Legacy of Excellence and Innovation</p>
+    </section>
+
+    <section class="history">
+        <h2>Our History</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="year">1995</span>
+                <p>Founded as a small community school with a vision to empower students.</p>
+            </div>
+            <div class="timeline-item">
+                <span class="year">2005</span>
+                <p>Expanded to include advanced science and technology programs.</p>
+            </div>
+            <div class="timeline-item">
+                <span class="year">2015</span>
+                <p>Celebrated 20 years with national recognition for academic excellence.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="vision-mission">
+        <div class="vm-container">
+            <div class="vm-card">
+                <h3>Our Vision</h3>
+                <p>A world where knowledge fuels success and opportunity for all.</p>
+            </div>
+            <div class="vm-card">
+                <h3>Our Mission</h3>
+                <p>To nurture bright minds for a better future through education and character.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faculty">
+        <h2>Our Faculty</h2>
+        <div class="faculty-container">
+            <div class="faculty-card">
+                <h4>MR.X</h4>
+                <p>founder and owner of Bethel Academy – PhD in Physics, 15+ years of teaching.</p>
+            </div>
+            <div class="faculty-card">
+                <h4>Mr. Z</h4>
+                <p>Director of Bethel Academy–</p>
+            </div>
+            <div class="faculty-card">
+                <h4>Ms.Y </h4>
+                <p>Assistant Director –.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="values">
+        <h2>Our Values</h2>
+        <ul>
+            <li>Integrity – Upholding honesty and ethics.</li>
+            <li>Innovation – Embracing new ideas and technology.</li>
+            <li>Community – Building a supportive, inclusive environment.</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>📍 JITU | 📞 (+251)9456-7890 | ✉️ info@academy.com</p>
+        <p>🔗 <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a></p>
+        <p>© 2025 Bethel Academy</p>
+    </footer>
+
+    <script>
+        // Load saved mode from localStorage on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedMode = localStorage.getItem('mode');
+            const body = document.body;
+            const toggleButton = document.querySelector('#mode-toggle');
+            if (savedMode === 'light') {
+                body.classList.add('light-mode');
+                toggleButton.textContent = '🌘';
+            } else {
+                body.classList.remove('light-mode');
+                toggleButton.textContent = '☀️';
+            }
+        });
+
+        // Toggle mode and save to localStorage
+        function toggleMode() {
+            const body = document.body;
+            const toggleButton = document.querySelector('#mode-toggle');
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                toggleButton.textContent = '☀️';
+                localStorage.setItem('mode', 'dark');
+            } else {
+                body.classList.add('light-mode');
+                toggleButton.textContent = '🌘';
+                localStorage.setItem('mode', 'light');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bethel Academy - Registration</title>
+    <link rel="stylesheet" href="bstyle.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Bethel Academy</div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="aboutbethel.html">About</a>
+            <a href="bethelacadmics.html">Academics</a>
+            <a href ="register.html">Register</a>
+            <a href="payment.html">Payments</a>
+            <a href="student-login.html">student management</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <button id="mode-toggle" onclick="toggleMode()">🌘</button>
+    </header>
+
+    <section class="registration-hero">
+        <h1>Registration</h1>
+        <p>Join the Bethel Academy Community</p>
+    </section>
+
+    <div class="registration-container">
+        <section class="registration-form">
+            <h2>Student Registration Form</h2>
+            <form class="reg-details">
+                <div class="form-group">
+                    <label for="student-name">Student Full Name</label>
+                    <input type="text" id="student-name" placeholder="Enter student's full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="student-dob">Date of Birth</label>
+                    <input type="date" id="student-dob" required>
+                </div>
+                <div class="form-group">
+                    <label for="grade">Grade Applying For</label>
+                    <select id="grade" required>
+                        <option value="">Select Grade</option>
+                        <option value="PRE-KG">PRE-KG</option>
+                        <option value="KG_1">KG-1</option>
+                        <option value="KG-2">KG-2</option>
+                        <option value="KG-3">KG-3 </option>
+                        <option value="1">Grade 1</option>
+                        <option value="2">Grade 2</option>
+                        <option value="3">Grade 3</option>
+                        <option value="4">Grade 4</option>
+                        <option value="5">Grade 5</option>
+                        <option value="6">Grade 6</option>
+                        <option value="7">Grade 7</option>
+                        <option value="8">Grade 8</option>
+                        <option value="9">Grade 9</option>
+                        <option value="10">Grade 10</option>
+                        <option value="11">Grade 11</option>
+                        <option value="12">Grade 12</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="parent-name">Parent/Guardian Name</label>
+                    <input type="text" id="parent-name" placeholder="Enter parent/guardian's full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="parent-email">Parent/Guardian Email</label>
+                    <input type="email" id="parent-email" placeholder="Enter email for confirmation" required>
+                </div>
+                <div class="form-group">
+                    <label for="parent-phone">Parent/Guardian Phone</label>
+                    <input type="tel" id="parent-phone" placeholder="Enter phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Home Address</label>
+                    <textarea id="address" placeholder="Enter full address" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="cta">Submit Registration</button>
+            </form>
+        </section>
+
+        <section class="registration-notes">
+            <div class="registration-process">
+                <h2>Registration Process</h2>
+                <ol>
+                    <li><strong>Complete the Form:</strong> Fill out the registration form with student and parent details.</li>
+                    <li><strong>Submit Documents:</strong> Provide required documents (see below).</li>
+                    <li><strong>Pay Registration Fee:</strong> Submit the fee via the Payments page.</li>
+                    <li><strong>Confirmation:</strong> Receive a confirmation email within 5-7 days.</li>
+                </ol>
+            </div>
+
+            <div class="registration-requirements">
+                <h2>Requirements</h2>
+                <ul>
+                    <li>Birth Certificate (copy)</li>
+                    <li>Previous School Records/Transcripts</li>
+                    <li>Parent/Guardian ID (copy)</li>
+                    <li>Proof of Address (e.g., utility bill)</li>
+                    <li>Recent Passport-Size Photo of Student</li>
+                </ul>
+            </div>
+
+            <div class="tuition-fees">
+                <h2>Tuition Fees</h2>
+                <p>Monthly tuition fees vary by grade level:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Grade Level</th>
+                            <th>Monthly Fee (ETB)</th>
+                            <th>Annual Fee (ETB)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>PRE-KG -PREP</td>
+                            <td>1,200ETB</td>
+                            <td>14,400ETB</td>
+                        </tr>
+                        <tr>
+                            <td>Grades 1-8</td>
+                            <td>1,300ETB</td>
+                            <td>15,600ETB</td>
+                        </tr>
+                        <tr>
+                            <td>Grades 9-12</td>
+                            <td>1,500ETB</td>
+                            <td>18,000ETB</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><em>Note:</em> Additional fees may apply. See Payments page.</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>📍 JITU | 📞 (+251)9456-7890 | ✉️ info@academy.com</p>
+        <p>🔗 <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a></p>
+        <p>© 2025 Bethel Academy</p>
+    </footer>
+
+    <script>
+        // Load saved mode from localStorage on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedMode = localStorage.getItem('mode');
+            const body = document.body;
+            const toggleButton = document.querySelector('#mode-toggle');
+            if (savedMode === 'light') {
+                body.classList.add('light-mode');
+                toggleButton.textContent = '🌘';
+            } else {
+                body.classList.remove('light-mode');
+                toggleButton.textContent = '☀️';
+            }
+        });
+
+        // Toggle mode and save to localStorage
+        function toggleMode() {
+            const body = document.body;
+            const toggleButton = document.querySelector('#mode-toggle');
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                toggleButton.textContent = '☀️';
+                localStorage.setItem('mode', 'dark');
+            } else {
+                body.classList.add('light-mode');
+                toggleButton.textContent = '🌘';
+                localStorage.setItem('mode', 'light');
+            }
+        }
+    </script>
+</body>
+</html>
